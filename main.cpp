@@ -10,7 +10,7 @@ int main() {
     std::cout << "Group developer:\n";
     std::cout << "Garcia, Theodore Rodolfo III\n";
     std::cout << "Magbatoc, Ethan Daniel\n";
-    std::cout << "Parado, Sky Hannah\n\n";
+    std::cout << "Parado, Sky Hannah\n";
     std::cout << "Villorente, Khyle Raeka\n\n";
 
     std::cout << "Version date: 2026-09-18\n\n";
@@ -31,8 +31,13 @@ int main() {
             std::cout << "Terminating console...\n";
             break;
         }
-        else if (input.rfind("set_text ", 0) == 0) {
-            marqueeText = input.substr(9);
+        else if (input == "set_text" || input.rfind("set_text ", 0) == 0) {
+            if (input.length() > 9) {
+                marqueeText = input.substr(9);
+            }
+            else {
+                marqueeText = "";
+            }
 
             if (marqueeText.empty()) {
                 std::cout << "Error: No text provided.\n";
